@@ -1,0 +1,21 @@
+---
+
+- name: Add user 'juri' 
+  ansible.builtin.user:
+    name: hudolejev
+
+- name: Set authorized keys taken from github keys 'juri'
+  ansible.posix.authorized_key:
+    user: hudolejev
+    key: https://github.com/hudolejev.keys
+
+- name: Add user 'roman' 
+  ansible.builtin.user:
+    name: romankuchin
+
+- name: Set authorized keys taken from github keys 'roman'
+  ansible.posix.authorized_key:
+    user: romankuchin
+    key: https://github.com/romankuchin.keys
+
+    

@@ -1,0 +1,16 @@
+---
+
+- name: Install 'uwsgi'
+  apt:
+    name: uwsgi
+    
+- name: Install 'uwsgi-plugin-python3'
+  apt:
+    name: uwsgi-plugin-python3
+   
+- name: Ensure that uwsgi is started
+  service:
+    name: uwsgi
+    state: started
+    enabled: yes  
+

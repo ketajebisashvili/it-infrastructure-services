@@ -1,0 +1,112 @@
+---
+
+- name: Install 'bind9'
+  apt:
+    name: bind9
+
+- name: Install 'python3-dnspython'
+  apt:
+    name: python3-dnspython
+
+- name: Create directory /var/cache/bind
+  file:
+    path: /var/cache/bind
+    state: directory
+  become: yes
+
+- name: Upload DNS zone file
+  when: inventory_hostname in groups['dns_masters']
+  template: 
+    src: db.tay.j2
+    dest: /var/cache/bind/db.{{ domain }}
+    force: no
+  no_log: true
+  notify:
+    - rndc reload
+
+- name: Upload reverse DNS zone file
+  when: inventory_hostname in groups['dns_masters']
+  template: 
+    src: db.domain.reverse.j2
+    dest: /var/cache/bind/db.{{ domain }}.reverse
+    force: no
+  no_log: true    
+  notify:
+    - rndc reload
+
+- name: Update resolv.conf
+  template: 
+    src: resolv.conf.j2
+    dest: /etc/resolv.conf
+  notify: 
+    - resolve directory
+    - systemd/resolve
+    - rndc reload
+
+- name: Stop service systemd-resolved
+  service:
+    name: systemd-resolved
+    state: stopped
+    enabled: no
+
+- name: Upload local DNS server configuration
+  template: 
+    src: named.conf.local.j2
+    dest: /etc/bind/named.conf.local
+  no_log: true
+  notify: 
+    - Restart bind9
+    - rndc reload
+
+- name: Upload configuration options for the DNS server
+  template: 
+    src: named.conf.options.j2
+    dest: /etc/bind/named.conf.options
+  no_log: true
+  notify: 
+    - Restart bind9
+    - rndc reload
+
+- name: Execute handlers preemptively
+  meta: flush_handlers
+
+- name: Ensure bind9 is started
+  service:
+    name: bind9
+    state: started
+    enabled: yes
+
+- name: Set A records
+  when: inventory_hostname in groups["dns_masters"]
+  nsupdate:
+    key_algorithm: "hmac-sha256"
+    key_name: "dns_update_key"
+    key_secret: "{{ dns_update_key }}"
+    server: "localhost"
+    zone: "{{ domain }}"
+    record: "{{ item.key }}"
+    type: "A"
+    value: "{{ item.value }}"
+  loop: "{{ dns_a_records | dict2items }}"
+  run_once: True
+  
+- name: Set CNAME records
+  when: inventory_hostname in groups["dns_masters"]
+  nsupdate:
+    key_algorithm: "hmac-sha256"
+    key_name: "dns_update_key"
+    key_secret: "{{ dns_update_key }}"
+    server: "localhost"
+    zone: "{{ domain }}"
+    record: "{{ item.key }}"
+    type: "CNAME"
+    value: "{{ item.value }}"
+  loop: "{{ dns_cname_records | dict2items }}"
+  run_once: True
+  
+- name: Ensure bind9 is started
+  service:
+    name: bind9
+    state: started
+    enabled: yes
+    

@@ -1,0 +1,260 @@
+---
+
+- name: Collect info about all VMs
+  hosts: all
+  gather_facts: yes
+  become: yes
+  tasks:
+    - setup:
+  tags:
+    - se
+    - internal
+    - application
+
+- name: Init
+  hosts: init
+  gather_facts: yes
+  become: yes
+  roles:
+    - init
+    
+  tags:
+    - in
+    - internal
+    - application
+
+- name: Backup
+  hosts: backup
+  gather_facts: yes
+  become: yes
+  roles:
+    - backup
+  tags:
+    
+    - ba
+    - application
+    - internal
+
+- name: IPtables
+  hosts: iptables
+  gather_facts: yes
+  become: yes
+  roles:
+    - iptables
+  tags:
+    - ip
+    - internal
+    - application
+
+
+- name: Bind9 DNS server
+  hosts: dns_servers
+  gather_facts: yes
+  become: yes
+  roles:
+    - bind
+  tags:
+    - bi
+    - internal
+    - application
+    - dns
+
+
+- name: Docker
+  hosts: docker
+  gather_facts: yes
+  become: yes
+  roles:
+    - docker
+  tags:
+    - do
+    - internal
+    - application
+    - database
+
+
+- name: Nginx
+  hosts: nginx
+  gather_facts: yes
+  become: yes
+  roles:
+    - nginx
+  tags:
+    - ng
+    - internal
+    - application
+
+
+- name: Rsyslog
+  hosts: rsyslog
+  gather_facts: yes
+  become: yes
+  roles:
+    - rsyslog
+  tags:
+    - rs
+    - internal
+
+
+- name:  MYSQL Database server
+  hosts: db_servers
+  gather_facts: yes
+  become: yes
+  roles:
+    - mysql
+    - mysql_backup
+  tags:
+    - my
+    - application
+    - database
+
+
+- name: Ansible web server
+  hosts: web_servers
+  gather_facts: yes
+  become: yes
+  roles:
+  
+    - agama
+    - uwsgi
+
+  tags:
+    - we
+    - application
+    - database
+
+
+
+
+
+- name: Prometheus
+  hosts: prometheus
+  gather_facts: yes
+  become: yes
+  roles:
+    - prometheus
+  tags:
+    - pr
+    - internal
+
+
+
+
+- name: Grafana
+  hosts: grafana
+  gather_facts: yes
+  become: yes
+  roles:
+    - grafana
+  tags:
+    - gr
+    - internal
+
+
+- name: InfluxDB and Telegraf
+  hosts: influxdb
+  gather_facts: yes
+  become: yes
+  roles:
+    - influxdb
+    - influxdb_backup
+  tags:
+    - inte
+    - internal
+    - database
+
+
+- name: Pinger
+  hosts: pinger
+  gather_facts: yes
+  become: yes
+  roles:
+    - pinger
+  tags:
+    - ping
+    - internal
+    - database
+
+
+- name: Keepalived
+  hosts: keepalived
+  gather_facts: yes
+  become: yes
+  roles:
+    - keepalived
+  tags:
+    - ke
+    - application
+    - exporter
+    - dns
+
+
+
+- name: Haproxy
+  hosts: haproxy
+  gather_facts: yes
+  become: yes
+  roles:
+    - haproxy
+  tags:
+    - ha
+    - application
+    - exporter
+    - dns
+
+
+
+
+
+    #exporters
+- name: VM1 exporters
+  hosts: vm1_exporters
+  gather_facts: yes
+  become: yes
+  roles:
+    - node_exporter 
+    - nginx_exporter 
+    - bind_exporter 
+    - mysql_exporter 
+    - haproxy_exporter    
+    - keepalived_exporter
+
+  tags:
+    - vm1exporters
+    - vm1
+    - exporter
+    - application
+
+
+- name: VM2 exporters
+  hosts: vm2_exporters
+  gather_facts: yes
+  become: yes
+  roles:
+    - node_exporter 
+    - nginx_exporter 
+    - bind_exporter
+    - mysql_exporter 
+    - haproxy_exporter    
+    - keepalived_exporter
+
+  tags:
+    - vm2exporters
+    - vm2
+    - exporter
+    - application
+
+- name: VM3 exporters
+  hosts: vm3_exporters
+  gather_facts: yes
+  become: yes
+  roles:
+    - node_exporter 
+    - nginx_exporter 
+    - bind_exporter
+    - influxdb_exporter
+  tags:
+    - vm3exporters
+    - vm3
+    - exporter
+    - internal

@@ -1,0 +1,63 @@
+---
+
+- name: Install 'mysql-server'
+  apt:
+    name: mysql-server
+    
+  notify: Restart mysql
+
+- name: Install 'python3-mysql'
+  apt:
+    name: python3-pymysql
+
+- name: Copy override.cnf.j2 to /etc/mysql/mysql.conf.d/override.cnf / Upload the mysql config file
+  template:
+    src: override.cnf.j2
+    dest: /etc/mysql/mysql.conf.d/override.cnf
+  no_log: true
+  notify: 
+   - Restart mysql
+
+- name: Ensure mysql is started
+  service:
+    name: mysql
+    state: started
+    enabled: yes
+
+- name: Create MySQL database
+  mysql_db:
+    name: "{{ mysql_database }}"
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+  no_log: true
+
+- name: Create MySQL user
+  mysql_user:
+    name: "{{ mysql_user }}"
+    password: "{{ mysql_user_pass }}"
+    host: "%"
+    priv: "{{ mysql_database }}.*:ALL"
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+  no_log: true
+
+- name: Create MySQL replication user
+  mysql_user:
+    name: "{{ replication_user }}"
+    password: "{{ replication_pass }}"
+    priv: "*.*:REPLICATION SLAVE"
+    host: "%"
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+  no_log: true
+  notify:
+    - Reset MySQL source
+    - Reset MySQL replica
+
+- name: Make replication read only
+  mysql_variables:
+    variable: read_only
+    value: "{{ 'OFF' if inventory_hostname == mysql_host else 'ON' }}"
+    mode: persist
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+
+- name: Execute handlers preemptively
+  meta: flush_handlers
+

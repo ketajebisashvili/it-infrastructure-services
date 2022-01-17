@@ -1,0 +1,37 @@
+---
+
+- name: Create the backup directory for mysql
+  file:
+    path: /home/backup/mysql
+    state: directory
+    owner: "{{ backup_user }}"
+    group: "{{ backup_user }}"
+    mode: 0774
+
+- name: Create MySQL backup user
+  mysql_user:
+    name: "{{ backup_user }}"
+    password: "{{ mysql_backup_pass }}"
+    priv: "{{ mysql_database }}.*:SELECT,LOCK TABLES"
+    host: "localhost"
+    login_unix_socket: /var/run/mysqld/mysqld.sock
+  no_log: true
+
+- name: Upload MySQL configuration file
+  template:
+    src: backup.my.cnf.j2
+    dest: /home/backup/.my.cnf
+    owner: "{{ backup_user }}"
+    group: "{{ backup_user }}"
+    mode: 0700
+  no_log: true
+
+- name: Update mysql cron
+  template:
+    src: mysql-backup.j2
+    dest: /etc/cron.d/mysql-backup
+    owner: root
+    group: root
+    mode: 0744
+  tags: cron
+

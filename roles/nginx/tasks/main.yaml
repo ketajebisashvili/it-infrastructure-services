@@ -1,0 +1,24 @@
+---
+
+- name: Install 'nginx'
+  apt:
+    name: nginx
+
+- name: Replace the default HTML page
+  copy:
+    src: index.html
+    dest: /var/www/html/index.html
+    follow: no
+
+- name:  Nginx as uWSGI frontend, Nginx configuration, Prometheus ports
+  template:
+    src: default.j2
+    dest: /etc/nginx/sites-enabled/default
+  notify: Restart nginx
+
+- name: Ensure nginx is started
+  service:
+    name: nginx
+    state: started
+    enabled: yes
+

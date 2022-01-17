@@ -1,0 +1,13 @@
+
+- name: Update APT cache
+  apt:
+    cache_valid_time: 86400
+
+- name: Gather information test
+  debug:
+    msg: 
+      - SSH host  {{ ansible_ssh_host }}
+      - SSH port  {{ ansible_port }}
+      - Public URL  {{ public_url }}
+      - Hostname  {{ inventory_hostname }}
+

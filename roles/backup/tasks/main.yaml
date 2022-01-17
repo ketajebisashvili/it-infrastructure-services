@@ -1,0 +1,42 @@
+---
+
+- name: Install 'duplicity'
+  apt:
+    name: duplicity
+  
+- name: Add the user 'backup' and generate keys
+  user:
+    name: "{{ backup_user }}"
+    home: /home/backup
+    shell: /bin/bash
+    generate_ssh_key: yes
+    ssh_key_bits: 4096
+    ssh_key_file: .ssh/id_rsa
+
+- name: Add group 'backup'
+  group:
+    name: "{{ backup_user }}"
+    state: present
+
+- name: Create backup directory "/home/backup" on the backup server 
+  file:
+    path: /home/backup/
+    state: directory
+    owner: "{{ backup_user }}"
+    group: "{{ backup_user }}"
+    mode: 0744
+
+- name: Add known hosts to directory /home/backup/.ssh/known_hosts
+  template:
+    src: known_hosts.j2
+    dest: /home/backup/.ssh/known_hosts
+    owner: root
+    group: root 
+    mode: 0644
+
+- name: Ensure cron is running
+  service:
+    name: cron
+    state: started
+    enabled: yes
+

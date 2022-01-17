@@ -1,0 +1,2007 @@
+Tue 21 Dec 2021 06:27:13 PM EET
++ hostname
+mx
++ ansible-playbook infra.yaml --diff
+
+PLAY [Collect info about all VMs] **********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [setup] *******************************************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+PLAY [Init] ********************************************************************
+
+TASK [init : Set a hostname specifying strategy] *******************************
+skipping: [ketajebisashvili-3]
+skipping: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [init : Set a hostname specifying strategy] *******************************
+skipping: [ketajebisashvili-3]
+skipping: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [init : Set a hostname specifying strategy] *******************************
+skipping: [ketajebisashvili-1]
+skipping: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+TASK [init : Update APT cache] *************************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [init : Gather information test] ******************************************
+ok: [ketajebisashvili-3] => {
+    "msg": [
+        "SSH host  193.40.156.67",
+        "SSH port  2022",
+        "Public URL  http://193.40.156.67:2080",
+        "Hostname  ketajebisashvili-3"
+    ]
+}
+ok: [ketajebisashvili-1] => {
+    "msg": [
+        "SSH host  193.40.156.67",
+        "SSH port  11722",
+        "Public URL  http://193.40.156.67:11780",
+        "Hostname  ketajebisashvili-1"
+    ]
+}
+ok: [ketajebisashvili-2] => {
+    "msg": [
+        "SSH host  193.40.156.67",
+        "SSH port  7722",
+        "Public URL  http://193.40.156.67:7780",
+        "Hostname  ketajebisashvili-2"
+    ]
+}
+
+TASK [backup : Install 'duplicity'] ********************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [backup : Add the user 'backup' and generate keys] ************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [backup : Add group 'backup'] *********************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+TASK [backup : Create backup directory "/home/backup" on the backup server] ****
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+TASK [backup : Add known hosts to directory /home/backup/.ssh/known_hosts] *****
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+TASK [backup : Ensure cron is running] *****************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+
+PLAY [iptables] ****************************************************************
+
+TASK [iptables : Install 'iptables-persistent'] ********************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+TASK [iptables : fix ssl handshake docker] *************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+TASK [iptables : Sleep for 10 seconds and continue with play] ******************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [iptables : Ensure netfilter-persistent is started] ***********************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+
+TASK [iptables : Load iptable-mangle config] ***********************************
+[WARNING]: Attempts to restore iptables state without rollback in case of
+mistake may lead the ansible controller to loose access to the hosts and never
+regain it before fixing firewall rules through a serial console, or any other
+way except SSH. Please set task attribute 'poll' (=15) to 0, and 'async' (=0)
+to a value >2 and not greater than 'ansible_timeout' (=10) (recommended).
+[WARNING]: Attempts to restore iptables state without rollback in case of
+mistake may lead the ansible controller to loose access to the hosts and never
+regain it before fixing firewall rules through a serial console, or any other
+way except SSH. Please set task attribute 'poll' (=15) to 0, and 'async' (=0)
+to a value >2 and not greater than 'ansible_timeout' (=10) (recommended).
+[WARNING]: Attempts to restore iptables state without rollback in case of
+mistake may lead the ansible controller to loose access to the hosts and never
+regain it before fixing firewall rules through a serial console, or any other
+way except SSH. Please set task attribute 'poll' (=15) to 0, and 'async' (=0)
+to a value >2 and not greater than 'ansible_timeout' (=10) (recommended).
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+PLAY [Bind9 DNS server] ********************************************************
+
+TASK [bind : Install 'bind9'] **************************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+TASK [bind : Install 'python3-dnspython'] **************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+TASK [bind : Create directory /var/cache/bind] *********************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+TASK [bind : Upload DNS zone file] *********************************************
+skipping: [ketajebisashvili-1]
+skipping: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+TASK [bind : Upload reverse DNS zone file] *************************************
+skipping: [ketajebisashvili-1]
+skipping: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+TASK [bind : Update resolv.conf] ***********************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+TASK [bind : Stop service systemd-resolved] ************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+TASK [bind : Upload local DNS server configuration] ****************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+TASK [bind : Upload configuration options for the DNS server] ******************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+TASK [bind : Execute handlers preemptively] ************************************
+
+TASK [bind : Ensure bind9 is started] ******************************************
+ok: [ketajebisashvili-2]
+changed: [ketajebisashvili-3]
+changed: [ketajebisashvili-1]
+
+TASK [bind : Set A records] ****************************************************
+ok: [ketajebisashvili-3] => (item={'key': 'backup', 'value': '192.168.42.132'})
+ok: [ketajebisashvili-3] => (item={'key': 'cloudfare', 'value': '1.1.1.1'})
+ok: [ketajebisashvili-3] => (item={'key': 'google', 'value': '8.8.8.8'})
+ok: [ketajebisashvili-3] => (item={'key': 'google2', 'value': '8.8.4.4'})
+
+TASK [bind : Set CNAME records] ************************************************
+ok: [ketajebisashvili-3] => (item={'key': 'grafana', 'value': 'ketajebisashvili-3'})
+ok: [ketajebisashvili-3] => (item={'key': 'influxdb', 'value': 'ketajebisashvili-3'})
+ok: [ketajebisashvili-3] => (item={'key': 'prometheus', 'value': 'ketajebisashvili-3'})
+ok: [ketajebisashvili-3] => (item={'key': 'web1', 'value': 'ketajebisashvili-1'})
+ok: [ketajebisashvili-3] => (item={'key': 'web2', 'value': 'ketajebisashvili-2'})
+ok: [ketajebisashvili-3] => (item={'key': 'web3', 'value': 'ketajebisashvili-3'})
+ok: [ketajebisashvili-3] => (item={'key': 'lb1', 'value': 'ketajebisashvili-1'})
+ok: [ketajebisashvili-3] => (item={'key': 'lb2', 'value': 'ketajebisashvili-2'})
+ok: [ketajebisashvili-3] => (item={'key': 'mysql1', 'value': 'ketajebisashvili-1'})
+ok: [ketajebisashvili-3] => (item={'key': 'mysql2', 'value': 'ketajebisashvili-2'})
+ok: [ketajebisashvili-3] => (item={'key': 'ns1', 'value': 'ketajebisashvili-3'})
+ok: [ketajebisashvili-3] => (item={'key': 'ns2', 'value': 'ketajebisashvili-1'})
+ok: [ketajebisashvili-3] => (item={'key': 'ns3', 'value': 'ketajebisashvili-2'})
+
+TASK [bind : Ensure bind9 is started] ******************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+PLAY [Docker instances] ********************************************************
+
+TASK [docker : Install 'python3-docker'] ***************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [docker : Install 'docker.io'] ********************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+TASK [docker : Ensure docker is running] ***************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+PLAY [Install nginx on all machines] *******************************************
+
+TASK [nginx : Install 'nginx'] *************************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+TASK [nginx : Replace the default HTML page] ***********************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+
+TASK [nginx : Nginx as uWSGI frontend, Nginx configuration, Prometheus ports] ***
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+
+TASK [nginx : Ensure nginx is started] *****************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+
+PLAY [upload rsyslog conf] *****************************************************
+
+TASK [rsyslog : Install 'rsyslog'] *********************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+TASK [rsyslog : Reconfigure Rsyslog] *******************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+TASK [rsyslog : Ensure rsyslog is started] *************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+
+PLAY [Database server] *********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql : Install 'mysql-server'] ******************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql : Install 'python3-mysql'] *****************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql : Copy override.cnf.j2 to /etc/mysql/mysql.conf.d/override.cnf / Upload the mysql config file] ***
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql : Ensure mysql is started] *****************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql : Create MySQL database] *******************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql : Create MySQL user] ***********************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql : Create MySQL replication user] ***********************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql : Make replication read only] **************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql : Execute handlers preemptively] ***********************************
+
+TASK [mysql : Ensure mysql is started] *****************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql_backup : Create the backup directory for mysql] ********************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql_backup : Create MySQL backup user] *********************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql_backup : Upload MySQL configuration file] **************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql_backup : Update mysql cron] ****************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+PLAY [Ansible webserver] *******************************************************
+
+TASK [agama : Creating folder /opt/agama] **************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [agama : Download agama container file] ***********************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [agama : Create agama docker image file] **********************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [agama : Create agama Docker container 1] *********************************
+ok: [ketajebisashvili-2]
+changed: [ketajebisashvili-1]
+
+TASK [agama : Create agama Docker container 2] *********************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [uwsgi : Install 'uwsgi'] *************************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [uwsgi : Install 'uwsgi-plugin-python3'] **********************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [uwsgi : Ensure that uwsgi is started] ************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+PLAY [Install and configure prometheus-node-exporter] **************************
+
+TASK [node_exporter : Install 'prometheus-node-exporter'] **********************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+TASK [node_exporter : Ensure node exporter is started] *************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+PLAY [Install and configure prometheus] ****************************************
+
+TASK [prometheus : Install 'prometheus'] ***************************************
+ok: [ketajebisashvili-3]
+
+TASK [prometheus : Copy prometheus.yml.j2 to /etc/prometheus/prometheus.yml / prometheus config] ***
+--- before: /etc/prometheus/prometheus.yml
++++ after: /root/.ansible/tmp/ansible-local-4780tv4w9xlt/tmpv6mh2uvr/prometheus_apt.yml.j2
+@@ -16,7 +16,7 @@
+   - job_name: grafana
+     static_configs:
+       - targets:
+-                - 'ketajebisashvili-3:3001'
++                - 'ketajebisashvili-3:4001'
+         
+ 
+   - job_name: influxdb + telegraph
+
+changed: [ketajebisashvili-3]
+
+TASK [prometheus : Copy prometheus.j2 to /etc/default/prometheus / reverse proxy config] ***
+ok: [ketajebisashvili-3]
+
+TASK [prometheus : Ensure prometheus is running] *******************************
+ok: [ketajebisashvili-3]
+
+RUNNING HANDLER [prometheus : Restart prometheus] ******************************
+changed: [ketajebisashvili-3]
+
+PLAY [Install and configure bind-exporter] *************************************
+
+TASK [bind_exporter : Install 'prometheus-bind-exporter'] **********************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+TASK [bind_exporter : Ensure that Bind9 exporter is started] *******************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+PLAY [Install and configure mysqld-exporter] ***********************************
+
+TASK [mysql_exporter : Install 'prometheus-mysqld-exporter'] *******************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql_exporter : Create directory for prometheus / /var/lib/prometheus] ***
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql_exporter : mysql cofig file for prometheus] ************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql_exporter : set data to collect] ************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql_exporter : Create MySQL exporter user] *****************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql_exporter : Pause for 10 sec] ***************************************
+skipping: [ketajebisashvili-1]
+
+TASK [mysql_exporter : Execute handlers] ***************************************
+
+TASK [mysql_exporter : Ensure mysql is started] ********************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql_exporter : Ensure mysqld exporter is started] **********************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+PLAY [Install and configure nginx-exporter] ************************************
+
+TASK [nginx_exporter : Install 'prometheus-nginx-exporter'] ********************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+TASK [nginx_exporter : Copy exporter.j2 to /etc/nginx/sites-enabled/exporter / listen to stub status] ***
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+TASK [nginx_exporter : Execute handlers preemptively] **************************
+
+TASK [nginx_exporter : Ensure nginx is started] ********************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+TASK [nginx_exporter : Ensure nginx exporter is started] ***********************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+PLAY [Install and configure grafana] *******************************************
+
+TASK [grafana : Create docker directories for grafana] *************************
+ok: [ketajebisashvili-3] => (item=/opt/grafana/provisioning/dashboards)
+ok: [ketajebisashvili-3] => (item=/opt/grafana/provisioning/datasources)
+
+TASK [grafana : Copy grafana.ini.j2 to /opt/grafana/grafana.ini (set url and pass)] ***
+ok: [ketajebisashvili-3]
+
+TASK [grafana : Copy datasource.yaml to /opt/grafana/provisioning/datasources/datasource.yaml (set the prometheus, influxdb, telegraf datasources)] ***
+ok: [ketajebisashvili-3]
+
+TASK [grafana : Copy dashboard.yaml to /opt/grafana/provisioning/dashboards/dashboard.yaml (set path to dashboards)] ***
+ok: [ketajebisashvili-3]
+
+TASK [grafana : Copy grafana dashboards (copy the .json-s)] ********************
+ok: [ketajebisashvili-3] => (item=None)
+ok: [ketajebisashvili-3] => (item=None)
+ok: [ketajebisashvili-3] => (item=None)
+ok: [ketajebisashvili-3] => (item=None)
+ok: [ketajebisashvili-3]
+
+TASK [grafana : Create grafana Docker container] *******************************
+--- before
++++ after
+@@ -3,7 +3,7 @@
+         "3000/tcp": [
+             {
+                 "HostIp": "0.0.0.0",
+-                "HostPort": "3001"
++                "HostPort": "4001"
+             }
+         ]
+     },
+
+[DEPRECATION WARNING]: The container_default_behavior option will change its 
+default value from "compatibility" to "no_defaults" in community.docker 2.0.0. 
+To remove this warning, please specify an explicit value for it now. This 
+feature will be removed from community.docker in version 2.0.0. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+changed: [ketajebisashvili-3]
+
+PLAY [Install and configure influxdb] ******************************************
+
+TASK [influxdb : Add influxdb and telegraf key] ********************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Add influx and telegraf repository into sources list] *********
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Install 'influxdb'] *******************************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Ensure influxdb is started] ***********************************
+changed: [ketajebisashvili-3]
+
+TASK [influxdb : Install 'telegraf'] *******************************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Ensure Telegraf is started] ***********************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Copy influxdb.conf.j2 into /etc/influxdb/influxdb.conf] *******
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Copy telegraf.conf.j2 into /etc/telegraf/telegraf.conf] *******
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Execute handlers] *********************************************
+
+TASK [influxdb : Ensure influxdb is started] ***********************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Ensure Telegraf is started] ***********************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb_backup : Create the backup directory for influxdb] **************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb_backup : Copy influxdb-backup.j2 to /etc/cron.d/influxdb-backup  (Upload influxdb cron)] ***
+ok: [ketajebisashvili-3]
+
+PLAY [Create pinger and configure it] ******************************************
+
+TASK [pinger : Add user pinger] ************************************************
+ok: [ketajebisashvili-3]
+
+TASK [pinger : Install 'fping'] ************************************************
+ok: [ketajebisashvili-3]
+
+TASK [pinger : Create pinger service] ******************************************
+ok: [ketajebisashvili-3]
+
+TASK [pinger : Create directory for pinger] ************************************
+ok: [ketajebisashvili-3]
+
+TASK [pinger : Copy pinger.conf.j2 template into /etc/pinger/pinger.conf] ******
+ok: [ketajebisashvili-3]
+
+TASK [pinger : Upload pinger service config] ***********************************
+ok: [ketajebisashvili-3]
+
+TASK [pinger : Ensure pinger is started] ***************************************
+changed: [ketajebisashvili-3]
+
+PLAY [Create influxdb_stats_exporter] ******************************************
+
+TASK [influxdb_exporter : Download 'influxdb-stats-exporter'] ******************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb_exporter : Giving permission and upload influx_stats_exporter_linux_amd64] ***
+ok: [ketajebisashvili-3]
+
+TASK [influxdb_exporter : make a service unit] *********************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb_exporter : Execute handlers] ************************************
+
+TASK [influxdb_exporter : Ensure influxdb-stats-exporter is started] ***********
+ok: [ketajebisashvili-3]
+
+PLAY [Keepalived] **************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [keepalived : Install 'keepalived'] ***************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [keepalived : Add user keepalived_script] *********************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [keepalived : Copy keepalived.conf to /etc/keepalived/keepalived.conf] ****
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [keepalived : Copy ha88.j2 to /usr/local/bin/ha88] ************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [keepalived : Ensure keepalived is started] *******************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [keepalived_exporter : Download keepalived exporter] **********************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [keepalived_exporter : create keepalived prometheus exporter service] *****
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [keepalived_exporter : Execute handlers] **********************************
+
+TASK [keepalived_exporter : Ensure that keepalived exporter is started] ********
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+PLAY [Haproxy] *****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [haproxy : Install 'haproxy'] *********************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [haproxy : Copy haproxy.conf] *********************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [haproxy : Execute handlers] **********************************************
+
+TASK [haproxy : Ensure haproxy is started] *************************************
+ok: [ketajebisashvili-2]
+changed: [ketajebisashvili-1]
+
+TASK [haproxy_exporter : Install 'prometheus-haproxy-exporter'] ****************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [haproxy_exporter : Copy prometheus-haproxy-exporter] *********************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [haproxy_exporter : Execute handlers] *************************************
+
+TASK [haproxy_exporter : Ensure haproxy exporter is started] *******************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+PLAY RECAP *********************************************************************
+ketajebisashvili-1         : ok=88   changed=3    unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+ketajebisashvili-2         : ok=88   changed=0    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+ketajebisashvili-3         : ok=81   changed=6    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+
++ ansible-playbook infra.yaml --diff
+
+PLAY [Collect info about all VMs] **********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [setup] *******************************************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+PLAY [Init] ********************************************************************
+
+TASK [init : Set a hostname specifying strategy] *******************************
+skipping: [ketajebisashvili-3]
+skipping: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [init : Set a hostname specifying strategy] *******************************
+skipping: [ketajebisashvili-3]
+skipping: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [init : Set a hostname specifying strategy] *******************************
+skipping: [ketajebisashvili-1]
+skipping: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+TASK [init : Update APT cache] *************************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [init : Gather information test] ******************************************
+ok: [ketajebisashvili-3] => {
+    "msg": [
+        "SSH host  193.40.156.67",
+        "SSH port  2022",
+        "Public URL  http://193.40.156.67:2080",
+        "Hostname  ketajebisashvili-3"
+    ]
+}
+ok: [ketajebisashvili-1] => {
+    "msg": [
+        "SSH host  193.40.156.67",
+        "SSH port  11722",
+        "Public URL  http://193.40.156.67:11780",
+        "Hostname  ketajebisashvili-1"
+    ]
+}
+ok: [ketajebisashvili-2] => {
+    "msg": [
+        "SSH host  193.40.156.67",
+        "SSH port  7722",
+        "Public URL  http://193.40.156.67:7780",
+        "Hostname  ketajebisashvili-2"
+    ]
+}
+
+TASK [backup : Install 'duplicity'] ********************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+TASK [backup : Add the user 'backup' and generate keys] ************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+TASK [backup : Add group 'backup'] *********************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+
+TASK [backup : Create backup directory "/home/backup" on the backup server] ****
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [backup : Add known hosts to directory /home/backup/.ssh/known_hosts] *****
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+TASK [backup : Ensure cron is running] *****************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+PLAY [iptables] ****************************************************************
+
+TASK [iptables : Install 'iptables-persistent'] ********************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [iptables : fix ssl handshake docker] *************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+
+TASK [iptables : Sleep for 10 seconds and continue with play] ******************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [iptables : Ensure netfilter-persistent is started] ***********************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [iptables : Load iptable-mangle config] ***********************************
+[WARNING]: Attempts to restore iptables state without rollback in case of
+mistake may lead the ansible controller to loose access to the hosts and never
+regain it before fixing firewall rules through a serial console, or any other
+way except SSH. Please set task attribute 'poll' (=15) to 0, and 'async' (=0)
+to a value >2 and not greater than 'ansible_timeout' (=10) (recommended).
+[WARNING]: Attempts to restore iptables state without rollback in case of
+mistake may lead the ansible controller to loose access to the hosts and never
+regain it before fixing firewall rules through a serial console, or any other
+way except SSH. Please set task attribute 'poll' (=15) to 0, and 'async' (=0)
+to a value >2 and not greater than 'ansible_timeout' (=10) (recommended).
+[WARNING]: Attempts to restore iptables state without rollback in case of
+mistake may lead the ansible controller to loose access to the hosts and never
+regain it before fixing firewall rules through a serial console, or any other
+way except SSH. Please set task attribute 'poll' (=15) to 0, and 'async' (=0)
+to a value >2 and not greater than 'ansible_timeout' (=10) (recommended).
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+PLAY [Bind9 DNS server] ********************************************************
+
+TASK [bind : Install 'bind9'] **************************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [bind : Install 'python3-dnspython'] **************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [bind : Create directory /var/cache/bind] *********************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [bind : Upload DNS zone file] *********************************************
+skipping: [ketajebisashvili-1]
+skipping: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+TASK [bind : Upload reverse DNS zone file] *************************************
+skipping: [ketajebisashvili-1]
+skipping: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+TASK [bind : Update resolv.conf] ***********************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [bind : Stop service systemd-resolved] ************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+TASK [bind : Upload local DNS server configuration] ****************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [bind : Upload configuration options for the DNS server] ******************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+TASK [bind : Execute handlers preemptively] ************************************
+
+TASK [bind : Ensure bind9 is started] ******************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+
+TASK [bind : Set A records] ****************************************************
+ok: [ketajebisashvili-3] => (item={'key': 'backup', 'value': '192.168.42.132'})
+ok: [ketajebisashvili-3] => (item={'key': 'cloudfare', 'value': '1.1.1.1'})
+ok: [ketajebisashvili-3] => (item={'key': 'google', 'value': '8.8.8.8'})
+ok: [ketajebisashvili-3] => (item={'key': 'google2', 'value': '8.8.4.4'})
+
+TASK [bind : Set CNAME records] ************************************************
+ok: [ketajebisashvili-3] => (item={'key': 'grafana', 'value': 'ketajebisashvili-3'})
+ok: [ketajebisashvili-3] => (item={'key': 'influxdb', 'value': 'ketajebisashvili-3'})
+ok: [ketajebisashvili-3] => (item={'key': 'prometheus', 'value': 'ketajebisashvili-3'})
+ok: [ketajebisashvili-3] => (item={'key': 'web1', 'value': 'ketajebisashvili-1'})
+ok: [ketajebisashvili-3] => (item={'key': 'web2', 'value': 'ketajebisashvili-2'})
+ok: [ketajebisashvili-3] => (item={'key': 'web3', 'value': 'ketajebisashvili-3'})
+ok: [ketajebisashvili-3] => (item={'key': 'lb1', 'value': 'ketajebisashvili-1'})
+ok: [ketajebisashvili-3] => (item={'key': 'lb2', 'value': 'ketajebisashvili-2'})
+ok: [ketajebisashvili-3] => (item={'key': 'mysql1', 'value': 'ketajebisashvili-1'})
+ok: [ketajebisashvili-3] => (item={'key': 'mysql2', 'value': 'ketajebisashvili-2'})
+ok: [ketajebisashvili-3] => (item={'key': 'ns1', 'value': 'ketajebisashvili-3'})
+ok: [ketajebisashvili-3] => (item={'key': 'ns2', 'value': 'ketajebisashvili-1'})
+ok: [ketajebisashvili-3] => (item={'key': 'ns3', 'value': 'ketajebisashvili-2'})
+
+TASK [bind : Ensure bind9 is started] ******************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+PLAY [Docker instances] ********************************************************
+
+TASK [docker : Install 'python3-docker'] ***************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [docker : Install 'docker.io'] ********************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [docker : Ensure docker is running] ***************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+PLAY [Install nginx on all machines] *******************************************
+
+TASK [nginx : Install 'nginx'] *************************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [nginx : Replace the default HTML page] ***********************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [nginx : Nginx as uWSGI frontend, Nginx configuration, Prometheus ports] ***
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+TASK [nginx : Ensure nginx is started] *****************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+PLAY [upload rsyslog conf] *****************************************************
+
+TASK [rsyslog : Install 'rsyslog'] *********************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [rsyslog : Reconfigure Rsyslog] *******************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [rsyslog : Ensure rsyslog is started] *************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+PLAY [Database server] *********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql : Install 'mysql-server'] ******************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql : Install 'python3-mysql'] *****************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql : Copy override.cnf.j2 to /etc/mysql/mysql.conf.d/override.cnf / Upload the mysql config file] ***
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql : Ensure mysql is started] *****************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql : Create MySQL database] *******************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql : Create MySQL user] ***********************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql : Create MySQL replication user] ***********************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql : Make replication read only] **************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql : Execute handlers preemptively] ***********************************
+
+TASK [mysql : Ensure mysql is started] *****************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql_backup : Create the backup directory for mysql] ********************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql_backup : Create MySQL backup user] *********************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql_backup : Upload MySQL configuration file] **************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql_backup : Update mysql cron] ****************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+PLAY [Ansible webserver] *******************************************************
+
+TASK [agama : Creating folder /opt/agama] **************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [agama : Download agama container file] ***********************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [agama : Create agama docker image file] **********************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [agama : Create agama Docker container 1] *********************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [agama : Create agama Docker container 2] *********************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [uwsgi : Install 'uwsgi'] *************************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [uwsgi : Install 'uwsgi-plugin-python3'] **********************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [uwsgi : Ensure that uwsgi is started] ************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+PLAY [Install and configure prometheus-node-exporter] **************************
+
+TASK [node_exporter : Install 'prometheus-node-exporter'] **********************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [node_exporter : Ensure node exporter is started] *************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+PLAY [Install and configure prometheus] ****************************************
+
+TASK [prometheus : Install 'prometheus'] ***************************************
+ok: [ketajebisashvili-3]
+
+TASK [prometheus : Copy prometheus.yml.j2 to /etc/prometheus/prometheus.yml / prometheus config] ***
+ok: [ketajebisashvili-3]
+
+TASK [prometheus : Copy prometheus.j2 to /etc/default/prometheus / reverse proxy config] ***
+ok: [ketajebisashvili-3]
+
+TASK [prometheus : Ensure prometheus is running] *******************************
+ok: [ketajebisashvili-3]
+
+PLAY [Install and configure bind-exporter] *************************************
+
+TASK [bind_exporter : Install 'prometheus-bind-exporter'] **********************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [bind_exporter : Ensure that Bind9 exporter is started] *******************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+PLAY [Install and configure mysqld-exporter] ***********************************
+
+TASK [mysql_exporter : Install 'prometheus-mysqld-exporter'] *******************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql_exporter : Create directory for prometheus / /var/lib/prometheus] ***
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql_exporter : mysql cofig file for prometheus] ************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql_exporter : set data to collect] ************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql_exporter : Create MySQL exporter user] *****************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql_exporter : Pause for 10 sec] ***************************************
+skipping: [ketajebisashvili-1]
+
+TASK [mysql_exporter : Execute handlers] ***************************************
+
+TASK [mysql_exporter : Ensure mysql is started] ********************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql_exporter : Ensure mysqld exporter is started] **********************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+PLAY [Install and configure nginx-exporter] ************************************
+
+TASK [nginx_exporter : Install 'prometheus-nginx-exporter'] ********************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [nginx_exporter : Copy exporter.j2 to /etc/nginx/sites-enabled/exporter / listen to stub status] ***
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+TASK [nginx_exporter : Execute handlers preemptively] **************************
+
+TASK [nginx_exporter : Ensure nginx is started] ********************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+TASK [nginx_exporter : Ensure nginx exporter is started] ***********************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+PLAY [Install and configure grafana] *******************************************
+
+TASK [grafana : Create docker directories for grafana] *************************
+ok: [ketajebisashvili-3] => (item=/opt/grafana/provisioning/dashboards)
+ok: [ketajebisashvili-3] => (item=/opt/grafana/provisioning/datasources)
+
+TASK [grafana : Copy grafana.ini.j2 to /opt/grafana/grafana.ini (set url and pass)] ***
+ok: [ketajebisashvili-3]
+
+TASK [grafana : Copy datasource.yaml to /opt/grafana/provisioning/datasources/datasource.yaml (set the prometheus, influxdb, telegraf datasources)] ***
+ok: [ketajebisashvili-3]
+
+TASK [grafana : Copy dashboard.yaml to /opt/grafana/provisioning/dashboards/dashboard.yaml (set path to dashboards)] ***
+ok: [ketajebisashvili-3]
+
+TASK [grafana : Copy grafana dashboards (copy the .json-s)] ********************
+ok: [ketajebisashvili-3] => (item=None)
+ok: [ketajebisashvili-3] => (item=None)
+ok: [ketajebisashvili-3] => (item=None)
+ok: [ketajebisashvili-3] => (item=None)
+ok: [ketajebisashvili-3]
+
+TASK [grafana : Create grafana Docker container] *******************************
+[DEPRECATION WARNING]: The container_default_behavior option will change its 
+default value from "compatibility" to "no_defaults" in community.docker 2.0.0. 
+To remove this warning, please specify an explicit value for it now. This 
+feature will be removed from community.docker in version 2.0.0. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+ok: [ketajebisashvili-3]
+
+PLAY [Install and configure influxdb] ******************************************
+
+TASK [influxdb : Add influxdb and telegraf key] ********************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Add influx and telegraf repository into sources list] *********
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Install 'influxdb'] *******************************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Ensure influxdb is started] ***********************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Install 'telegraf'] *******************************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Ensure Telegraf is started] ***********************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Copy influxdb.conf.j2 into /etc/influxdb/influxdb.conf] *******
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Copy telegraf.conf.j2 into /etc/telegraf/telegraf.conf] *******
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Execute handlers] *********************************************
+
+TASK [influxdb : Ensure influxdb is started] ***********************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Ensure Telegraf is started] ***********************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb_backup : Create the backup directory for influxdb] **************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb_backup : Copy influxdb-backup.j2 to /etc/cron.d/influxdb-backup  (Upload influxdb cron)] ***
+ok: [ketajebisashvili-3]
+
+PLAY [Create pinger and configure it] ******************************************
+
+TASK [pinger : Add user pinger] ************************************************
+ok: [ketajebisashvili-3]
+
+TASK [pinger : Install 'fping'] ************************************************
+ok: [ketajebisashvili-3]
+
+TASK [pinger : Create pinger service] ******************************************
+ok: [ketajebisashvili-3]
+
+TASK [pinger : Create directory for pinger] ************************************
+ok: [ketajebisashvili-3]
+
+TASK [pinger : Copy pinger.conf.j2 template into /etc/pinger/pinger.conf] ******
+ok: [ketajebisashvili-3]
+
+TASK [pinger : Upload pinger service config] ***********************************
+ok: [ketajebisashvili-3]
+
+TASK [pinger : Ensure pinger is started] ***************************************
+ok: [ketajebisashvili-3]
+
+PLAY [Create influxdb_stats_exporter] ******************************************
+
+TASK [influxdb_exporter : Download 'influxdb-stats-exporter'] ******************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb_exporter : Giving permission and upload influx_stats_exporter_linux_amd64] ***
+ok: [ketajebisashvili-3]
+
+TASK [influxdb_exporter : make a service unit] *********************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb_exporter : Execute handlers] ************************************
+
+TASK [influxdb_exporter : Ensure influxdb-stats-exporter is started] ***********
+ok: [ketajebisashvili-3]
+
+PLAY [Keepalived] **************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [keepalived : Install 'keepalived'] ***************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [keepalived : Add user keepalived_script] *********************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [keepalived : Copy keepalived.conf to /etc/keepalived/keepalived.conf] ****
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [keepalived : Copy ha88.j2 to /usr/local/bin/ha88] ************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [keepalived : Ensure keepalived is started] *******************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [keepalived_exporter : Download keepalived exporter] **********************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [keepalived_exporter : create keepalived prometheus exporter service] *****
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [keepalived_exporter : Execute handlers] **********************************
+
+TASK [keepalived_exporter : Ensure that keepalived exporter is started] ********
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+PLAY [Haproxy] *****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [haproxy : Install 'haproxy'] *********************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [haproxy : Copy haproxy.conf] *********************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [haproxy : Execute handlers] **********************************************
+
+TASK [haproxy : Ensure haproxy is started] *************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [haproxy_exporter : Install 'prometheus-haproxy-exporter'] ****************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [haproxy_exporter : Copy prometheus-haproxy-exporter] *********************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [haproxy_exporter : Execute handlers] *************************************
+
+TASK [haproxy_exporter : Ensure haproxy exporter is started] *******************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+PLAY RECAP *********************************************************************
+ketajebisashvili-1         : ok=88   changed=0    unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+ketajebisashvili-2         : ok=88   changed=0    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+ketajebisashvili-3         : ok=80   changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+
++ ansible all -b -m reboot -a test_command=uptime
+ketajebisashvili-3 | CHANGED => {
+    "changed": true,
+    "elapsed": 33,
+    "rebooted": true
+}
+ketajebisashvili-2 | CHANGED => {
+    "changed": true,
+    "elapsed": 41,
+    "rebooted": true
+}
+ketajebisashvili-1 | CHANGED => {
+    "changed": true,
+    "elapsed": 41,
+    "rebooted": true
+}
++ ansible-playbook infra.yaml --diff
+
+PLAY [Collect info about all VMs] **********************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [setup] *******************************************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+PLAY [Init] ********************************************************************
+
+TASK [init : Set a hostname specifying strategy] *******************************
+skipping: [ketajebisashvili-3]
+skipping: [ketajebisashvili-2]
+--- before
++++ after
+@@ -1 +1 @@
+-hostname = host-192-168-42-117
++hostname = ketajebisashvili-1
+
+changed: [ketajebisashvili-1]
+
+TASK [init : Set a hostname specifying strategy] *******************************
+skipping: [ketajebisashvili-3]
+skipping: [ketajebisashvili-1]
+--- before
++++ after
+@@ -1 +1 @@
+-hostname = host-192-168-42-77
++hostname = ketajebisashvili-2
+
+changed: [ketajebisashvili-2]
+
+TASK [init : Set a hostname specifying strategy] *******************************
+skipping: [ketajebisashvili-1]
+skipping: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+TASK [init : Update APT cache] *************************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+TASK [init : Gather information test] ******************************************
+ok: [ketajebisashvili-3] => {
+    "msg": [
+        "SSH host  193.40.156.67",
+        "SSH port  2022",
+        "Public URL  http://193.40.156.67:2080",
+        "Hostname  ketajebisashvili-3"
+    ]
+}
+ok: [ketajebisashvili-1] => {
+    "msg": [
+        "SSH host  193.40.156.67",
+        "SSH port  11722",
+        "Public URL  http://193.40.156.67:11780",
+        "Hostname  ketajebisashvili-1"
+    ]
+}
+ok: [ketajebisashvili-2] => {
+    "msg": [
+        "SSH host  193.40.156.67",
+        "SSH port  7722",
+        "Public URL  http://193.40.156.67:7780",
+        "Hostname  ketajebisashvili-2"
+    ]
+}
+
+TASK [backup : Install 'duplicity'] ********************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+TASK [backup : Add the user 'backup' and generate keys] ************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+TASK [backup : Add group 'backup'] *********************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+TASK [backup : Create backup directory "/home/backup" on the backup server] ****
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+TASK [backup : Add known hosts to directory /home/backup/.ssh/known_hosts] *****
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+TASK [backup : Ensure cron is running] *****************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+PLAY [iptables] ****************************************************************
+
+TASK [iptables : Install 'iptables-persistent'] ********************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+TASK [iptables : fix ssl handshake docker] *************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [iptables : Sleep for 10 seconds and continue with play] ******************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+
+TASK [iptables : Ensure netfilter-persistent is started] ***********************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+
+TASK [iptables : Load iptable-mangle config] ***********************************
+[WARNING]: Attempts to restore iptables state without rollback in case of
+mistake may lead the ansible controller to loose access to the hosts and never
+regain it before fixing firewall rules through a serial console, or any other
+way except SSH. Please set task attribute 'poll' (=15) to 0, and 'async' (=0)
+to a value >2 and not greater than 'ansible_timeout' (=10) (recommended).
+[WARNING]: Attempts to restore iptables state without rollback in case of
+mistake may lead the ansible controller to loose access to the hosts and never
+regain it before fixing firewall rules through a serial console, or any other
+way except SSH. Please set task attribute 'poll' (=15) to 0, and 'async' (=0)
+to a value >2 and not greater than 'ansible_timeout' (=10) (recommended).
+[WARNING]: Attempts to restore iptables state without rollback in case of
+mistake may lead the ansible controller to loose access to the hosts and never
+regain it before fixing firewall rules through a serial console, or any other
+way except SSH. Please set task attribute 'poll' (=15) to 0, and 'async' (=0)
+to a value >2 and not greater than 'ansible_timeout' (=10) (recommended).
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+PLAY [Bind9 DNS server] ********************************************************
+
+TASK [bind : Install 'bind9'] **************************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+TASK [bind : Install 'python3-dnspython'] **************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [bind : Create directory /var/cache/bind] *********************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [bind : Upload DNS zone file] *********************************************
+skipping: [ketajebisashvili-1]
+skipping: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+TASK [bind : Upload reverse DNS zone file] *************************************
+skipping: [ketajebisashvili-1]
+skipping: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+TASK [bind : Update resolv.conf] ***********************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+TASK [bind : Stop service systemd-resolved] ************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [bind : Upload local DNS server configuration] ****************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+
+TASK [bind : Upload configuration options for the DNS server] ******************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+
+TASK [bind : Execute handlers preemptively] ************************************
+
+TASK [bind : Ensure bind9 is started] ******************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+TASK [bind : Set A records] ****************************************************
+ok: [ketajebisashvili-3] => (item={'key': 'backup', 'value': '192.168.42.132'})
+ok: [ketajebisashvili-3] => (item={'key': 'cloudfare', 'value': '1.1.1.1'})
+ok: [ketajebisashvili-3] => (item={'key': 'google', 'value': '8.8.8.8'})
+ok: [ketajebisashvili-3] => (item={'key': 'google2', 'value': '8.8.4.4'})
+
+TASK [bind : Set CNAME records] ************************************************
+ok: [ketajebisashvili-3] => (item={'key': 'grafana', 'value': 'ketajebisashvili-3'})
+ok: [ketajebisashvili-3] => (item={'key': 'influxdb', 'value': 'ketajebisashvili-3'})
+ok: [ketajebisashvili-3] => (item={'key': 'prometheus', 'value': 'ketajebisashvili-3'})
+ok: [ketajebisashvili-3] => (item={'key': 'web1', 'value': 'ketajebisashvili-1'})
+ok: [ketajebisashvili-3] => (item={'key': 'web2', 'value': 'ketajebisashvili-2'})
+ok: [ketajebisashvili-3] => (item={'key': 'web3', 'value': 'ketajebisashvili-3'})
+ok: [ketajebisashvili-3] => (item={'key': 'lb1', 'value': 'ketajebisashvili-1'})
+ok: [ketajebisashvili-3] => (item={'key': 'lb2', 'value': 'ketajebisashvili-2'})
+ok: [ketajebisashvili-3] => (item={'key': 'mysql1', 'value': 'ketajebisashvili-1'})
+ok: [ketajebisashvili-3] => (item={'key': 'mysql2', 'value': 'ketajebisashvili-2'})
+ok: [ketajebisashvili-3] => (item={'key': 'ns1', 'value': 'ketajebisashvili-3'})
+ok: [ketajebisashvili-3] => (item={'key': 'ns2', 'value': 'ketajebisashvili-1'})
+ok: [ketajebisashvili-3] => (item={'key': 'ns3', 'value': 'ketajebisashvili-2'})
+
+TASK [bind : Ensure bind9 is started] ******************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+PLAY [Docker instances] ********************************************************
+
+TASK [docker : Install 'python3-docker'] ***************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+TASK [docker : Install 'docker.io'] ********************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+TASK [docker : Ensure docker is running] ***************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+
+PLAY [Install nginx on all machines] *******************************************
+
+TASK [nginx : Install 'nginx'] *************************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+TASK [nginx : Replace the default HTML page] ***********************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+TASK [nginx : Nginx as uWSGI frontend, Nginx configuration, Prometheus ports] ***
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+
+TASK [nginx : Ensure nginx is started] *****************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+
+PLAY [upload rsyslog conf] *****************************************************
+
+TASK [rsyslog : Install 'rsyslog'] *********************************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [rsyslog : Reconfigure Rsyslog] *******************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+TASK [rsyslog : Ensure rsyslog is started] *************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+
+PLAY [Database server] *********************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql : Install 'mysql-server'] ******************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql : Install 'python3-mysql'] *****************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql : Copy override.cnf.j2 to /etc/mysql/mysql.conf.d/override.cnf / Upload the mysql config file] ***
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql : Ensure mysql is started] *****************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql : Create MySQL database] *******************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql : Create MySQL user] ***********************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql : Create MySQL replication user] ***********************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql : Make replication read only] **************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql : Execute handlers preemptively] ***********************************
+
+TASK [mysql : Ensure mysql is started] *****************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql_backup : Create the backup directory for mysql] ********************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql_backup : Create MySQL backup user] *********************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql_backup : Upload MySQL configuration file] **************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql_backup : Update mysql cron] ****************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+PLAY [Ansible webserver] *******************************************************
+
+TASK [agama : Creating folder /opt/agama] **************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [agama : Download agama container file] ***********************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [agama : Create agama docker image file] **********************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [agama : Create agama Docker container 1] *********************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [agama : Create agama Docker container 2] *********************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [uwsgi : Install 'uwsgi'] *************************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [uwsgi : Install 'uwsgi-plugin-python3'] **********************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [uwsgi : Ensure that uwsgi is started] ************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+PLAY [Install and configure prometheus-node-exporter] **************************
+
+TASK [node_exporter : Install 'prometheus-node-exporter'] **********************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+
+TASK [node_exporter : Ensure node exporter is started] *************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+PLAY [Install and configure prometheus] ****************************************
+
+TASK [prometheus : Install 'prometheus'] ***************************************
+ok: [ketajebisashvili-3]
+
+TASK [prometheus : Copy prometheus.yml.j2 to /etc/prometheus/prometheus.yml / prometheus config] ***
+ok: [ketajebisashvili-3]
+
+TASK [prometheus : Copy prometheus.j2 to /etc/default/prometheus / reverse proxy config] ***
+ok: [ketajebisashvili-3]
+
+TASK [prometheus : Ensure prometheus is running] *******************************
+ok: [ketajebisashvili-3]
+
+PLAY [Install and configure bind-exporter] *************************************
+
+TASK [bind_exporter : Install 'prometheus-bind-exporter'] **********************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-3]
+
+TASK [bind_exporter : Ensure that Bind9 exporter is started] *******************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+PLAY [Install and configure mysqld-exporter] ***********************************
+
+TASK [mysql_exporter : Install 'prometheus-mysqld-exporter'] *******************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql_exporter : Create directory for prometheus / /var/lib/prometheus] ***
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [mysql_exporter : mysql cofig file for prometheus] ************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql_exporter : set data to collect] ************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql_exporter : Create MySQL exporter user] *****************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql_exporter : Pause for 10 sec] ***************************************
+skipping: [ketajebisashvili-1]
+
+TASK [mysql_exporter : Execute handlers] ***************************************
+
+TASK [mysql_exporter : Ensure mysql is started] ********************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [mysql_exporter : Ensure mysqld exporter is started] **********************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+PLAY [Install and configure nginx-exporter] ************************************
+
+TASK [nginx_exporter : Install 'prometheus-nginx-exporter'] ********************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [nginx_exporter : Copy exporter.j2 to /etc/nginx/sites-enabled/exporter / listen to stub status] ***
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+
+TASK [nginx_exporter : Execute handlers preemptively] **************************
+
+TASK [nginx_exporter : Ensure nginx is started] ********************************
+ok: [ketajebisashvili-3]
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [nginx_exporter : Ensure nginx exporter is started] ***********************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-3]
+
+PLAY [Install and configure grafana] *******************************************
+
+TASK [grafana : Create docker directories for grafana] *************************
+ok: [ketajebisashvili-3] => (item=/opt/grafana/provisioning/dashboards)
+ok: [ketajebisashvili-3] => (item=/opt/grafana/provisioning/datasources)
+
+TASK [grafana : Copy grafana.ini.j2 to /opt/grafana/grafana.ini (set url and pass)] ***
+ok: [ketajebisashvili-3]
+
+TASK [grafana : Copy datasource.yaml to /opt/grafana/provisioning/datasources/datasource.yaml (set the prometheus, influxdb, telegraf datasources)] ***
+ok: [ketajebisashvili-3]
+
+TASK [grafana : Copy dashboard.yaml to /opt/grafana/provisioning/dashboards/dashboard.yaml (set path to dashboards)] ***
+ok: [ketajebisashvili-3]
+
+TASK [grafana : Copy grafana dashboards (copy the .json-s)] ********************
+ok: [ketajebisashvili-3] => (item=None)
+ok: [ketajebisashvili-3] => (item=None)
+ok: [ketajebisashvili-3] => (item=None)
+ok: [ketajebisashvili-3] => (item=None)
+ok: [ketajebisashvili-3]
+
+TASK [grafana : Create grafana Docker container] *******************************
+[DEPRECATION WARNING]: The container_default_behavior option will change its 
+default value from "compatibility" to "no_defaults" in community.docker 2.0.0. 
+To remove this warning, please specify an explicit value for it now. This 
+feature will be removed from community.docker in version 2.0.0. Deprecation 
+warnings can be disabled by setting deprecation_warnings=False in ansible.cfg.
+ok: [ketajebisashvili-3]
+
+PLAY [Install and configure influxdb] ******************************************
+
+TASK [influxdb : Add influxdb and telegraf key] ********************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Add influx and telegraf repository into sources list] *********
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Install 'influxdb'] *******************************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Ensure influxdb is started] ***********************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Install 'telegraf'] *******************************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Ensure Telegraf is started] ***********************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Copy influxdb.conf.j2 into /etc/influxdb/influxdb.conf] *******
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Copy telegraf.conf.j2 into /etc/telegraf/telegraf.conf] *******
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Execute handlers] *********************************************
+
+TASK [influxdb : Ensure influxdb is started] ***********************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb : Ensure Telegraf is started] ***********************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb_backup : Create the backup directory for influxdb] **************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb_backup : Copy influxdb-backup.j2 to /etc/cron.d/influxdb-backup  (Upload influxdb cron)] ***
+ok: [ketajebisashvili-3]
+
+PLAY [Create pinger and configure it] ******************************************
+
+TASK [pinger : Add user pinger] ************************************************
+ok: [ketajebisashvili-3]
+
+TASK [pinger : Install 'fping'] ************************************************
+ok: [ketajebisashvili-3]
+
+TASK [pinger : Create pinger service] ******************************************
+ok: [ketajebisashvili-3]
+
+TASK [pinger : Create directory for pinger] ************************************
+ok: [ketajebisashvili-3]
+
+TASK [pinger : Copy pinger.conf.j2 template into /etc/pinger/pinger.conf] ******
+ok: [ketajebisashvili-3]
+
+TASK [pinger : Upload pinger service config] ***********************************
+ok: [ketajebisashvili-3]
+
+TASK [pinger : Ensure pinger is started] ***************************************
+ok: [ketajebisashvili-3]
+
+PLAY [Create influxdb_stats_exporter] ******************************************
+
+TASK [influxdb_exporter : Download 'influxdb-stats-exporter'] ******************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb_exporter : Giving permission and upload influx_stats_exporter_linux_amd64] ***
+ok: [ketajebisashvili-3]
+
+TASK [influxdb_exporter : make a service unit] *********************************
+ok: [ketajebisashvili-3]
+
+TASK [influxdb_exporter : Execute handlers] ************************************
+
+TASK [influxdb_exporter : Ensure influxdb-stats-exporter is started] ***********
+ok: [ketajebisashvili-3]
+
+PLAY [Keepalived] **************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [keepalived : Install 'keepalived'] ***************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [keepalived : Add user keepalived_script] *********************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [keepalived : Copy keepalived.conf to /etc/keepalived/keepalived.conf] ****
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [keepalived : Copy ha88.j2 to /usr/local/bin/ha88] ************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [keepalived : Ensure keepalived is started] *******************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [keepalived_exporter : Download keepalived exporter] **********************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [keepalived_exporter : create keepalived prometheus exporter service] *****
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [keepalived_exporter : Execute handlers] **********************************
+
+TASK [keepalived_exporter : Ensure that keepalived exporter is started] ********
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+PLAY [Haproxy] *****************************************************************
+
+TASK [Gathering Facts] *********************************************************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [haproxy : Install 'haproxy'] *********************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [haproxy : Copy haproxy.conf] *********************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [haproxy : Execute handlers] **********************************************
+
+TASK [haproxy : Ensure haproxy is started] *************************************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [haproxy_exporter : Install 'prometheus-haproxy-exporter'] ****************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+TASK [haproxy_exporter : Copy prometheus-haproxy-exporter] *********************
+ok: [ketajebisashvili-1]
+ok: [ketajebisashvili-2]
+
+TASK [haproxy_exporter : Execute handlers] *************************************
+
+TASK [haproxy_exporter : Ensure haproxy exporter is started] *******************
+ok: [ketajebisashvili-2]
+ok: [ketajebisashvili-1]
+
+PLAY RECAP *********************************************************************
+ketajebisashvili-1         : ok=88   changed=1    unreachable=0    failed=0    skipped=5    rescued=0    ignored=0   
+ketajebisashvili-2         : ok=88   changed=1    unreachable=0    failed=0    skipped=4    rescued=0    ignored=0   
+ketajebisashvili-3         : ok=80   changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0   
+
++ date
+Tue 21 Dec 2021 06:41:20 PM EET
