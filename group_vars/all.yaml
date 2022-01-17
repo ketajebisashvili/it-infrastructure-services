@@ -120,7 +120,7 @@ keepalived_master_priority: 100
 
 keepalived_slave_priority: 99
 
-backup_server_ssh_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIBSne71MCp6CQCHURWe3CLud6vPDkLfL83Oab/giAI7O # Equals to key1 and key 2
+backup_server_ssh_key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIEu6pFFWyuRrl4WGFPQGElYN9txwTGm2wSntcpVAaN90 # Equals to key1 and key 2
 
 
 
