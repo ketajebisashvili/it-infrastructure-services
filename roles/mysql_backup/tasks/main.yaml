@@ -35,3 +35,9 @@
     mode: 0744
   tags: cron
 
+- name: Ensure Cron is started
+  service:
+    name: cron
+    state: started
+    enabled: yes
+  tags: cron

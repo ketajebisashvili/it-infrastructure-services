@@ -18,6 +18,17 @@
     name: "{{ backup_user }}"
     state: present
 
+- name: Create backup directory restore and .ssh / /home/backup/restore/ + /home/backup/.ssh/
+  file:
+    path: /home/backup/{{ item }}
+    state: directory
+    owner: "{{ backup_user }}"
+    group: "{{ backup_user }}"
+    mode: 0744
+  loop:
+    - restore
+    - .ssh
+
 - name: Create backup directory "/home/backup" on the backup server 
   file:
     path: /home/backup/
