@@ -18,75 +18,75 @@ If you know the issue is with the backup, it is mandatory to first run the backu
 
 This command will collect information about the vm-s:
 
-    ansible-playbook infra-yaml --tags se
+    ansible-playbook infra.yaml --tags se
 
 This command will install/restore duplicity service on the vm-s:
     
-    ansible-playbook infra-yaml --tags in
+    ansible-playbook infra.yaml --tags in
 
 This command will install/restore bind service on the vm-s:
     
-    ansible-playbook infra-yaml --tags bi
+    ansible-playbook infra.yaml --tags bi
 
 This command will fix the docker container building and image creation SSL handshake error on the vm-s:
     
-    ansible-playbook infra-yaml --tags ip
+    ansible-playbook infra.yaml --tags ip
 
 This command will install/restore MySQL service and create the mysql backup cron file for agama and user information on the vm-s:
     
-    ansible-playbook infra-yaml --tags my
+    ansible-playbook infra.yaml --tags my
 
 This command will install/restore docker service on the vm-s:
     
-    ansible-playbook infra-yaml --tags do
+    ansible-playbook infra.yaml --tags do
 
 This command will install/restore nginx service on the vm-s:
     
-    ansible-playbook infra-yaml --tags ng
+    ansible-playbook infra.yaml --tags ng
 
 This command will install/restore uwsgi service and create the Agama docker image on the vm-s:
     
-    ansible-playbook infra-yaml --tags we
+    ansible-playbook infra.yaml --tags we
 
 This command will install/restore prometheus service on the vm-s:
     
-    ansible-playbook infra-yaml --tags pr
+    ansible-playbook infra.yaml --tags pr
 
 This command will install/restore influxdb, telegraf and create the influxdb backup cron file for influxdb log service on the vm-s:
     
-    ansible-playbook infra-yaml --tags inte
+    ansible-playbook infra.yaml --tags inte
 
 This command will install/restore pinger service on the vm-s:
     
-    ansible-playbook infra-yaml --tags ping
+    ansible-playbook infra.yaml --tags ping
 
 This command will install/restore rsyslog service on the vm-s:
     
-    ansible-playbook infra-yaml --tags rs
+    ansible-playbook infra.yaml --tags rs
 
 This command will install/restore keepalived  service on the vm-s:
     
-    ansible-playbook infra-yaml --tags ke
+    ansible-playbook infra.yaml --tags ke
 
 This command will install/restore haproxy  service on the vm-s:
     
-    ansible-playbook infra-yaml --tags ha
+    ansible-playbook infra.yaml --tags ha
 
  This command will install/restore grafana service by creating the Grafana docker image on the vm-s:
     
-    ansible-playbook infra-yaml --tags gr
+    ansible-playbook infra.yaml --tags gr
 
 This command will install/restore all exporter services on the vm1:
     
-    ansible-playbook infra-yaml --tags vm1exporters
+    ansible-playbook infra.yaml --tags vm1exporters
 
 This command will install/restore all exporter services on the vm2:
     
-    ansible-playbook infra-yaml --tags vm2exporters
+    ansible-playbook infra.yaml --tags vm2exporters
 
 This command will install/restore all exporter services on the vm3:
     
-    ansible-playbook infra-yaml --tags vm3exporters
+    ansible-playbook infra.yaml --tags vm3exporters
    
 
 
