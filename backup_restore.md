@@ -94,23 +94,23 @@ This command will install/restore all exporter services on the vm3:
 
 This command will install/restore all application services on the vm-s:
 
-    ansible-playbook infra-yaml --tags application
+    ansible-playbook infra.yaml --tags application
 
 This command will install/restore all internal services on the vm-s:
 
-    ansible-playbook infra-yaml --tags internal
+    ansible-playbook infra.yaml --tags internal
 
 This command will install/restore all database services with their backup utilities on the vm-s:
 
-    ansible-playbook infra-yaml --tags database
+    ansible-playbook infra.yaml --tags database
 
 This command will install/restore all exporter services on the vm-s:
 
-    ansible-playbook infra-yaml --tags exporter
+    ansible-playbook infra.yaml --tags exporter
 
 This command will install/restore all dns services on the vm-s:
 
-    ansible-playbook infra-yaml --tags dns
+    ansible-playbook infra.yaml --tags dns
 
 
 ### Install/Restore Infrastructure
