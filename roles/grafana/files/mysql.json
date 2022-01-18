@@ -80,7 +80,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "bematv-1:9104"
+              "options": "ketajebisashvili-1:9104"
             },
             "properties": [
               {
@@ -108,7 +108,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "bematv-2:9104"
+              "options": "ketajebisashvili-2:9104"
             },
             "properties": [
               {

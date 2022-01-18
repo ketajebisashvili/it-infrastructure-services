@@ -408,7 +408,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "nginx_up{instance=\"bematv-1:9113\", job=\"nginx-exporter\"}"
+              "options": "nginx_up{instance=\"ketajebisashvili-1:9113\", job=\"nginx-exporter\"}"
             },
             "properties": [
               {
@@ -436,7 +436,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "nginx_up{instance=\"bematv-2:9113\", job=\"nginx-exporter\"}"
+              "options": "nginx_up{instance=\"ketajebisashvili-2:9113\", job=\"nginx-exporter\"}"
             },
             "properties": [
               {
@@ -464,7 +464,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "nginx_up{instance=\"bematv-3:9113\", job=\"nginx-exporter\"}"
+              "options": "nginx_up{instance=\"ketajebisashvili-3:9113\", job=\"nginx-exporter\"}"
             },
             "properties": [
               {
@@ -686,7 +686,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "mysql_up{instance=\"bematv-1:9104\", job=\"mysql-exporter\"}"
+              "options": "mysql_up{instance=\"ketajebisashvili-1:9104\", job=\"mysql-exporter\"}"
             },
             "properties": [
               {
@@ -714,7 +714,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "mysql_up{instance=\"bematv-2:9104\", job=\"mysql-exporter\"}"
+              "options": "mysql_up{instance=\"ketajebisashvili-2:9104\", job=\"mysql-exporter\"}"
             },
             "properties": [
               {
@@ -910,7 +910,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "bind_up{instance=\"bematv-1:9119\", job=\"bind9-exporter\"}"
+              "options": "bind_up{instance=\"ketajebisashvili-1:9119\", job=\"bind9-exporter\"}"
             },
             "properties": [
               {
@@ -938,7 +938,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "bind_up{instance=\"bematv-2:9119\", job=\"bind9-exporter\"}"
+              "options": "bind_up{instance=\"ketajebisashvili-2:9119\", job=\"bind9-exporter\"}"
             },
             "properties": [
               {
@@ -966,7 +966,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "bind_up{instance=\"bematv-3:9119\", job=\"bind9-exporter\"}"
+              "options": "bind_up{instance=\"ketajebisashvili-3:9119\", job=\"bind9-exporter\"}"
             },
             "properties": [
               {
@@ -1167,7 +1167,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "influxdb_exporter_stats_query_success{instance=\"bematv-3:9424\", job=\"influxdb-exporter\"}"
+              "options": "influxdb_exporter_stats_query_success{instance=\"ketajebisashvili-3:9424\", job=\"influxdb-exporter\"}"
             },
             "properties": [
               {
@@ -1403,7 +1403,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "node_exporter_build_info{branch=\"debian/sid\", goversion=\"go1.13.8\", instance=\"bematv-1:9100\", job=\"node-exporter\", revision=\"0.18.1+ds-2\", version=\"0.18.1+ds\"}"
+              "options": "node_exporter_build_info{branch=\"debian/sid\", goversion=\"go1.13.8\", instance=\"ketajebisashvili-1:9100\", job=\"node-exporter\", revision=\"0.18.1+ds-2\", version=\"0.18.1+ds\"}"
             },
             "properties": [
               {
@@ -1431,7 +1431,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "node_exporter_build_info{branch=\"debian/sid\", goversion=\"go1.13.8\", instance=\"bematv-2:9100\", job=\"node-exporter\", revision=\"0.18.1+ds-2\", version=\"0.18.1+ds\"}"
+              "options": "node_exporter_build_info{branch=\"debian/sid\", goversion=\"go1.13.8\", instance=\"ketajebisashvili-2:9100\", job=\"node-exporter\", revision=\"0.18.1+ds-2\", version=\"0.18.1+ds\"}"
             },
             "properties": [
               {
@@ -1459,7 +1459,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "node_exporter_build_info{branch=\"debian/sid\", goversion=\"go1.13.8\", instance=\"bematv-3:9100\", job=\"node-exporter\", revision=\"0.18.1+ds-2\", version=\"0.18.1+ds\"}"
+              "options": "node_exporter_build_info{branch=\"debian/sid\", goversion=\"go1.13.8\", instance=\"ketajebisashvili-3:9100\", job=\"node-exporter\", revision=\"0.18.1+ds-2\", version=\"0.18.1+ds\"}"
             },
             "properties": [
               {
@@ -1566,7 +1566,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "bind_exporter_build_info{goversion=\"go1.13.6\", instance=\"bematv-1:9119\", job=\"bind9-exporter\"}"
+              "options": "bind_exporter_build_info{goversion=\"go1.13.6\", instance=\"ketajebisashvili-1:9119\", job=\"bind9-exporter\"}"
             },
             "properties": [
               {
@@ -1594,7 +1594,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "bind_exporter_build_info{goversion=\"go1.13.6\", instance=\"bematv-2:9119\", job=\"bind9-exporter\"}"
+              "options": "bind_exporter_build_info{goversion=\"go1.13.6\", instance=\"ketajebisashvili-2:9119\", job=\"bind9-exporter\"}"
             },
             "properties": [
               {
@@ -1622,7 +1622,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "bind_exporter_build_info{goversion=\"go1.13.6\", instance=\"bematv-3:9119\", job=\"bind9-exporter\"}"
+              "options": "bind_exporter_build_info{goversion=\"go1.13.6\", instance=\"ketajebisashvili-3:9119\", job=\"bind9-exporter\"}"
             },
             "properties": [
               {
@@ -1728,7 +1728,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "nginxexporter_build_info{instance=\"bematv-1:9113\", job=\"nginx-exporter\", version=\"0.5.0+ds-2\"}"
+              "options": "nginxexporter_build_info{instance=\"ketajebisashvili-1:9113\", job=\"nginx-exporter\", version=\"0.5.0+ds-2\"}"
             },
             "properties": [
               {
@@ -1756,7 +1756,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "nginxexporter_build_info{instance=\"bematv-2:9113\", job=\"nginx-exporter\", version=\"0.5.0+ds-2\"}"
+              "options": "nginxexporter_build_info{instance=\"ketajebisashvili-2:9113\", job=\"nginx-exporter\", version=\"0.5.0+ds-2\"}"
             },
             "properties": [
               {
@@ -1784,7 +1784,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "nginxexporter_build_info{instance=\"bematv-3:9113\", job=\"nginx-exporter\", version=\"0.5.0+ds-2\"}"
+              "options": "nginxexporter_build_info{instance=\"ketajebisashvili-3:9113\", job=\"nginx-exporter\", version=\"0.5.0+ds-2\"}"
             },
             "properties": [
               {
@@ -1890,7 +1890,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "influxdb_stats_exporter_build_info{branch=\"HEAD\", goversion=\"go1.12.1\", instance=\"bematv-3:9424\", job=\"influxdb-exporter\", revision=\"ee98fdc3\", version=\"v0.1.1\"}"
+              "options": "influxdb_stats_exporter_build_info{branch=\"HEAD\", goversion=\"go1.12.1\", instance=\"ketajebisashvili-3:9424\", job=\"influxdb-exporter\", revision=\"ee98fdc3\", version=\"v0.1.1\"}"
             },
             "properties": [
               {
@@ -1996,7 +1996,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "mysqld_exporter_build_info{branch=\"debian/sid\", goversion=\"go1.10.4\", instance=\"bematv-1:9104\", job=\"mysql-exporter\", revision=\"0.11.0+ds-1\", version=\"0.11.0+ds\"}"
+              "options": "mysqld_exporter_build_info{branch=\"debian/sid\", goversion=\"go1.10.4\", instance=\"ketajebisashvili-1:9104\", job=\"mysql-exporter\", revision=\"0.11.0+ds-1\", version=\"0.11.0+ds\"}"
             },
             "properties": [
               {
@@ -2024,7 +2024,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "mysqld_exporter_build_info{branch=\"debian/sid\", goversion=\"go1.10.4\", instance=\"bematv-2:9104\", job=\"mysql-exporter\", revision=\"0.11.0+ds-1\", version=\"0.11.0+ds\"}"
+              "options": "mysqld_exporter_build_info{branch=\"debian/sid\", goversion=\"go1.10.4\", instance=\"ketajebisashvili-2:9104\", job=\"mysql-exporter\", revision=\"0.11.0+ds-1\", version=\"0.11.0+ds\"}"
             },
             "properties": [
               {
@@ -2130,7 +2130,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "haproxy_exporter_build_info{branch=\"debian/sid\", goversion=\"go1.10.4\", instance=\"bematv-1:9101\", job=\"haproxy-exporter\", revision=\"0.9.0+git20180917+ds-1\", version=\"0.9.0+git20180917+ds\"}"
+              "options": "haproxy_exporter_build_info{branch=\"debian/sid\", goversion=\"go1.10.4\", instance=\"ketajebisashvili-1:9101\", job=\"haproxy-exporter\", revision=\"0.9.0+git20180917+ds-1\", version=\"0.9.0+git20180917+ds\"}"
             },
             "properties": [
               {
@@ -2158,7 +2158,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "haproxy_exporter_build_info{branch=\"debian/sid\", goversion=\"go1.10.4\", instance=\"bematv-2:9101\", job=\"haproxy-exporter\", revision=\"0.9.0+git20180917+ds-1\", version=\"0.9.0+git20180917+ds\"}"
+              "options": "haproxy_exporter_build_info{branch=\"debian/sid\", goversion=\"go1.10.4\", instance=\"ketajebisashvili-2:9101\", job=\"haproxy-exporter\", revision=\"0.9.0+git20180917+ds-1\", version=\"0.9.0+git20180917+ds\"}"
             },
             "properties": [
               {
@@ -2364,7 +2364,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "keepalived_up{instance=\"bematv-1:9165\", job=\"keepalived-exporter\"}"
+              "options": "keepalived_up{instance=\"ketajebisashvili-1:9165\", job=\"keepalived-exporter\"}"
             },
             "properties": [
               {
@@ -2392,7 +2392,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "keepalived_up{instance=\"bematv-2:9165\", job=\"keepalived-exporter\"}"
+              "options": "keepalived_up{instance=\"ketajebisashvili-2:9165\", job=\"keepalived-exporter\"}"
             },
             "properties": [
               {
@@ -2498,7 +2498,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "haproxy_up{instance=\"bematv-1:9101\", job=\"haproxy-exporter\"}"
+              "options": "haproxy_up{instance=\"ketajebisashvili-1:9101\", job=\"haproxy-exporter\"}"
             },
             "properties": [
               {
@@ -2526,7 +2526,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "haproxy_up{instance=\"bematv-2:9101\", job=\"haproxy-exporter\"}"
+              "options": "haproxy_up{instance=\"ketajebisashvili-2:9101\", job=\"haproxy-exporter\"}"
             },
             "properties": [
               {
@@ -2639,7 +2639,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "haproxy_server_up{backend=\"agama_front\", instance=\"bematv-1:9101\", job=\"haproxy-exporter\", server=\"bematv-1-1\"}"
+              "options": "haproxy_server_up{backend=\"agama_front\", instance=\"ketajebisashvili-1:9101\", job=\"haproxy-exporter\", server=\"ketajebisashvili-1-1\"}"
             },
             "properties": [
               {
@@ -2667,7 +2667,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "haproxy_server_up{backend=\"agama_front\", instance=\"bematv-1:9101\", job=\"haproxy-exporter\", server=\"bematv-1-2\"}"
+              "options": "haproxy_server_up{backend=\"agama_front\", instance=\"ketajebisashvili-1:9101\", job=\"haproxy-exporter\", server=\"ketajebisashvili-1-2\"}"
             },
             "properties": [
               {
@@ -2695,7 +2695,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "haproxy_server_up{backend=\"agama_front\", instance=\"bematv-1:9101\", job=\"haproxy-exporter\", server=\"bematv-2-1\"}"
+              "options": "haproxy_server_up{backend=\"agama_front\", instance=\"ketajebisashvili-1:9101\", job=\"haproxy-exporter\", server=\"ketajebisashvili-2-1\"}"
             },
             "properties": [
               {
@@ -2723,7 +2723,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "haproxy_server_up{backend=\"agama_front\", instance=\"bematv-1:9101\", job=\"haproxy-exporter\", server=\"bematv-2-2\"}"
+              "options": "haproxy_server_up{backend=\"agama_front\", instance=\"ketajebisashvili-1:9101\", job=\"haproxy-exporter\", server=\"ketajebisashvili-2-2\"}"
             },
             "properties": [
               {
@@ -2751,7 +2751,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "haproxy_server_up{backend=\"agama_front\", instance=\"bematv-2:9101\", job=\"haproxy-exporter\", server=\"bematv-1-1\"}"
+              "options": "haproxy_server_up{backend=\"agama_front\", instance=\"ketajebisashvili-2:9101\", job=\"haproxy-exporter\", server=\"ketajebisashvili-1-1\"}"
             },
             "properties": [
               {
@@ -2779,7 +2779,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "haproxy_server_up{backend=\"agama_front\", instance=\"bematv-2:9101\", job=\"haproxy-exporter\", server=\"bematv-1-2\"}"
+              "options": "haproxy_server_up{backend=\"agama_front\", instance=\"ketajebisashvili-2:9101\", job=\"haproxy-exporter\", server=\"ketajebisashvili-1-2\"}"
             },
             "properties": [
               {
@@ -2807,7 +2807,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "haproxy_server_up{backend=\"agama_front\", instance=\"bematv-2:9101\", job=\"haproxy-exporter\", server=\"bematv-2-1\"}"
+              "options": "haproxy_server_up{backend=\"agama_front\", instance=\"ketajebisashvili-2:9101\", job=\"haproxy-exporter\", server=\"ketajebisashvili-2-1\"}"
             },
             "properties": [
               {
@@ -2835,7 +2835,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "haproxy_server_up{backend=\"agama_front\", instance=\"bematv-2:9101\", job=\"haproxy-exporter\", server=\"bematv-2-2\"}"
+              "options": "haproxy_server_up{backend=\"agama_front\", instance=\"ketajebisashvili-2:9101\", job=\"haproxy-exporter\", server=\"ketajebisashvili-2-2\"}"
             },
             "properties": [
               {
