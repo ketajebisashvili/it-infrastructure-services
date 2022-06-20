@@ -20,4 +20,4 @@ Containerisation services - Docker
 
 Load balancing - HAProxy, Keepalived
 
-[For usability use this document] (https://github.com/ketajebisashvili/it-infrastructure-services/blob/032a4a8caa4d675eafb4c6bbfe9a8e8d56a64336/backup_restore.md)
+[For usability use this document](https://github.com/ketajebisashvili/it-infrastructure-services/blob/032a4a8caa4d675eafb4c6bbfe9a8e8d56a64336/backup_restore.md)
